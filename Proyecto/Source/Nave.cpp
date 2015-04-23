@@ -72,13 +72,12 @@ void Nave::Draw()
 			switch (tipoNave)
 			{
 			case NAVE_PROPIA:
-				nave->ScaleXYZ(30.f, 30.f, 30.f);
-				nave->TranslateZ(-2.f);
+				nave->ScaleXYZ(20.f, 20.f, 20.f);
 				bala[i]->MoverArribaAbajo(-10);
 				break;
 
 			case NAVE_ENEMIGA:
-				nave->ScaleXYZ(5.f, 5.f, 5.f);
+				nave->ScaleXYZ(7.f, 7.f, 7.f);
 				bala[i]->MoverArribaAbajo(10);
 				break;
 			}
