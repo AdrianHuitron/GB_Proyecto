@@ -11,6 +11,8 @@ CGame::CGame(){
 	tick = CERO;
 	atexit(SDL_Quit);
 	translate_menu_x = 0.f;
+	translate_Jugando_x = 0.f;
+	
 
 }
 	
@@ -213,6 +215,12 @@ void CGame::MoverEnemigo(){
 }//Termina MoverEnemigo
 
 void CGame::JugandoPintar(){
+
+	translate_Jugando_x -= 4;
+	menuFondo->TranslateXY(translate_Jugando_x--, 0.f);
+	if (translate_Jugando_x < -1279)
+		translate_Jugando_x = 0.f;
+
 	jugandoFondo->Draw();
 	////////////////////////////////////////
 	//////// CONTROL DE COLISIONES /////////
