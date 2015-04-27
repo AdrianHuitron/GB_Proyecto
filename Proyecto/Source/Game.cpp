@@ -4,12 +4,19 @@
 #include "Config.h"
 #include <SDL.h>
 
+
 CGame::CGame(){
 	estadoJuego = ESTADO_INICIANDO;
 	tiempoFrameInicial = CERO;
 	tick = CERO;
 	atexit(SDL_Quit);
+	translate_menu_x = 0.f;
+
 }
+	
+
+	
+	
 
 void CGame::IniciandoVideo()
 {
@@ -21,6 +28,8 @@ void CGame::IniciandoVideo()
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Video Init: ", (const char *)SDL_GetError(), NULL);
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Unable to initialize SDL: %s\n", SDL_GetError());
 		exit(EXIT_FAILURE);
+		
+
 	}
 	
 	window = SDL_CreateWindow(VERSION, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH_SCREEN, HEIGHT_SCREEN, SDL_WINDOW_OPENGL);
@@ -320,6 +329,10 @@ void CGame::MenuActualizar()
 
 void CGame::MenuPintar()
 {
+	translate_menu_x -= 4;
+	menuFondo->TranslateXY(translate_menu_x--, 0.f);
+	if (translate_menu_x < -1279)
+	 translate_menu_x = 0.f;
 	menuFondo->Draw();
 	textoTitulo->TranslateXYDraw(WIDTH_SCREEN / 8, 0);
 
