@@ -216,12 +216,20 @@ void CGame::MoverEnemigo(){
 
 void CGame::JugandoPintar(){
 
-	translate_jugando_y -= 4;
+	//Mueve el fondo en Y (no funciona)
+	/*translate_jugando_y += 4;
 	menuFondo->TranslateXY(translate_jugando_y--, 0.f);
-	if (translate_jugando_y < -800)
-		translate_jugando_y = 0.f;
+	if (translate_jugando_y < -1279)
+		translate_jugando_y = 0.f;*/
+	//jugandoFondo->Draw();
 
-	jugandoFondo->Draw();
+	//Mueve el fondo en X (mismo codigo que en MenuPintar()
+	translate_menu_x -= 4;
+	menuFondo->TranslateXY(translate_menu_x--, 0.f);
+	if (translate_menu_x < -600)
+		translate_menu_x = 0.f;
+	menuFondo->Draw();
+	
 	////////////////////////////////////////
 	//////// CONTROL DE COLISIONES /////////
 	for (int i = 0; i < nivel[nivelActual].Enemigos_VisiblesAlMismoTiempo; i++)
@@ -339,7 +347,7 @@ void CGame::MenuPintar()
 {
 	translate_menu_x -= 4;
 	menuFondo->TranslateXY(translate_menu_x--, 0.f);
-	if (translate_menu_x < -1279)
+	if (translate_menu_x < -600)
 	 translate_menu_x = 0.f;
 	menuFondo->Draw();
 	textoTitulo->TranslateXYDraw(WIDTH_SCREEN / 8, 0);
