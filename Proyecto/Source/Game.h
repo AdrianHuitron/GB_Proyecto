@@ -26,7 +26,7 @@ public:
 
 
 public:
-	GLfloat translate_Jugando_y;
+	GLfloat translate_jugando_y;
 	GLfloat translate_menu_x;
 	void CargandoObjetos();
 	void IniciandoVideo();
