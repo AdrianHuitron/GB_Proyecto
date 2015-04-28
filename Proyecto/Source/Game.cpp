@@ -216,19 +216,12 @@ void CGame::MoverEnemigo(){
 
 void CGame::JugandoPintar(){
 
-	//Mueve el fondo en Y (no funciona)
-	/*translate_jugando_y += 4;
-	menuFondo->TranslateXY(translate_jugando_y--, 0.f);
-	if (translate_jugando_y < -1279)
-		translate_jugando_y = 0.f;*/
-	//jugandoFondo->Draw();
-
-	//Mueve el fondo en X (mismo codigo que en MenuPintar()
-	translate_menu_x -= 4;
-	menuFondo->TranslateXY(translate_menu_x--, 0.f);
-	if (translate_menu_x < -600)
-		translate_menu_x = 0.f;
-	menuFondo->Draw();
+	//Mueve el fondo en Y
+	translate_jugando_y -= 4;
+	jugandoFondo->TranslateXY(0.f, translate_jugando_y--);
+	if (translate_jugando_y < -600)
+		translate_jugando_y = 0.f;
+	jugandoFondo->Draw();
 	
 	////////////////////////////////////////
 	//////// CONTROL DE COLISIONES /////////
